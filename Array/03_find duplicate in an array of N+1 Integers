@@ -1,0 +1,14 @@
+ vector<int> findDuplicates(vector<int>& arr) {
+        vector<int> ans;
+        unordered_map<int , int> count;
+        for(int i = 0 ; i < arr.size() ; i++){
+            count[arr[i]]++;
+        }
+        
+        for(auto ele : count){
+            if(ele.second > 1){
+                ans.push_back(ele.first);
+            }
+        }
+        return ans;
+    }
