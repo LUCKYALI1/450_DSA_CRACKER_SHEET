@@ -1,0 +1,11 @@
+class Solution {
+  public:
+    pair<int, int> getMinMax(vector<int> arr) {
+        sort(arr.begin() , arr.end());
+        pair<int , int> ans;
+        ans.first = arr[0];
+        ans.second = arr[arr.size()-1];
+        
+        return ans;
+    }
+};
