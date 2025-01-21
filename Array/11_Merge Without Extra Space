@@ -1,0 +1,16 @@
+void mergeArrays(vector<int>& a, vector<int>& b) {
+   for (int i = 0; i < n; i++) {
+        if (a[i] > b[0]) {
+            // Swap the elements
+            swap(a[i], b[0]);
+
+            // Re-adjust array `b` to maintain sorted order
+            int first = b[0];
+            int k;
+            for (k = 1; k < m && b[k] < first; k++) {
+                b[k - 1] = b[k];
+            }
+            b[k - 1] = first;
+        }
+    }
+}
