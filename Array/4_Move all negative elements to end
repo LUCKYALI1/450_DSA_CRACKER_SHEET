@@ -1,0 +1,14 @@
+ void segregateElements(vector<int>& arr) {
+        vector<int> temp;
+        for (int num : arr) {
+            if (num >= 0) {
+                temp.push_back(num);
+            }
+        }
+        for (int num : arr) {
+            if (num < 0) {
+                temp.push_back(num);
+            }
+        }
+        arr = temp;
+    }
