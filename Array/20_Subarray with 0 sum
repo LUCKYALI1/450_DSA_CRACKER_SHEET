@@ -1,0 +1,12 @@
+bool subArrayExists(vector<int>& arr) {
+        unordered_set<int> prefixSums;
+        int sum = 0;
+        for (int i = 0; i < arr.size(); i++) {
+            sum += arr[i];
+            if (sum == 0 || prefixSums.find(sum) != prefixSums.end()) {
+                return true;
+            }
+            prefixSums.insert(sum);
+        }
+        return false;
+    }
