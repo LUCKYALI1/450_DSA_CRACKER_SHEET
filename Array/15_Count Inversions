@@ -1,0 +1,13 @@
+   int inversionCount(vector<int> &arr) {
+    int count = 0;
+    int n = arr.size();
+    for (int s = 0; s < n; s++) {
+        for (int e = s + 1; e < n; e++) {
+            if (arr[s] > arr[e]) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
