@@ -1,0 +1,10 @@
+int findMinDiff(vector<int>& a, int m) {
+        if (m == 0 || a.size() < m) return -1; // Handle edge cases
+        sort(a.begin(), a.end()); // Sort the array
+        int minDiff = INT_MAX;
+        for (int i = 0; i + m - 1 < a.size(); i++) {
+            int diff = a[i + m - 1] - a[i]; // Difference between the smallest and largest in the window
+            minDiff = min(minDiff, diff);
+        }
+        return minDiff;
+    }
