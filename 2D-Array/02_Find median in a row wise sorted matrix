@@ -1,1 +1,15 @@
 
+class Solution {
+  public:
+   int median(vector<vector<int>> &mat) {
+        vector<int> sortedArr;
+        for (int i = 0; i < mat.size(); i++) {
+            for (int j = 0; j < mat[i].size(); j++) {
+                sortedArr.push_back(mat[i][j]);
+            }
+        }
+        sort(sortedArr.begin(), sortedArr.end());
+        return sortedArr[sortedArr.size() / 2];
+    }
+
+};
