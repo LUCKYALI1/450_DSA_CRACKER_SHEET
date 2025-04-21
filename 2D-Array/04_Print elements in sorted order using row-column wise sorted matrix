@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    vector<vector<int>> sortedMatrix(int N, vector<vector<int>> Mat) {
+    vector<int> sortedArr;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < Mat[i].size(); j++) {
+            sortedArr.push_back(Mat[i][j]);
+        }
+    }
+
+    sort(sortedArr.begin(), sortedArr.end());
+    vector<vector<int>> res(N, vector<int>(N));
+    int k = 0;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            res[i][j] = sortedArr[k++];
+        }
+    }
+
+    return res;
+}
+};
