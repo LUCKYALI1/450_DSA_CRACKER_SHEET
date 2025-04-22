@@ -1,0 +1,32 @@
+int findMaxValue(vector<vector<int>>& mat, int N) {
+    vector<vector<int>> maxArr(N, vector<int>(N));
+    int maxValue = INT_MIN;
+
+    // Step 1: Fill bottom-right corner
+    maxArr[N-1][N-1] = mat[N-1][N-1];
+
+    // Step 2: Fill last row
+    for (int j = N - 2; j >= 0; j--)
+        maxArr[N-1][j] = max(mat[N-1][j], maxArr[N-1][j+1]);
+
+    // Step 3: Fill last column
+    for (int i = N - 2; i >= 0; i--)
+        maxArr[i][N-1] = max(mat[i][N-1], maxArr[i+1][N-1]);
+
+    // Step 4: Fill rest of maxArr and compute maxValue
+    for (int i = N - 2; i >= 0; i--) {
+        for (int j = N - 2; j >= 0; j--) {
+            int potential = maxArr[i+1][j+1] - mat[i][j];
+            maxValue = max(maxValue, potential);
+
+            maxArr[i][j] = max({
+                mat[i][j],
+                maxArr[i+1][j],
+                maxArr[i][j+1],
+                maxArr[i+1][j+1]
+            });
+        }
+    }
+
+    return maxValue;
+}
